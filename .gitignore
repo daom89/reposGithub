@@ -20,7 +20,6 @@ uv.lock
 .flet/
 
 # Distribución
-docs/
 build/
 
 # Otros
