@@ -13,7 +13,6 @@ def get_user_repos(token):
     """
     headers = {"Authorization": f"token {token}"}
     all_repos_data = []
-    # 💡 INICIO DE LA LÓGICA DE PAGINACIÓN
     # Empezamos con la URL de la primera página
     url = f"{GITHUB_API_URL}/user/repos?affiliation=owner,collaborator,organization_member&per_page=100"
 
@@ -29,7 +28,6 @@ def get_user_repos(token):
         else:
             url = None # Si no hay 'next', terminamos el bucle
 
-    # 💡 FIN DE LA LÓGICA DE PAGINACIÓN
     return all_repos_data
 
 # --- Componentes y Lógica de la Interfaz Gráfica (Flet) ---
@@ -116,6 +114,8 @@ def main(page: ft.Page):
     token_input = ft.TextField(
         label="GitHub Personal Access Token",
         password=True,
+        # 💡 CORRECCIÓN: 'can_reveal_password' es una mejora útil de las versiones modernas
+        can_reveal_password=True,
     )
     connect_button = ft.ElevatedButton("Conectar y Cargar Repositorios", on_click=fetch_all_repos)
     progress_ring = ft.ProgressRing(visible=False)
@@ -162,4 +162,5 @@ def main(page: ft.Page):
 
 # --- Iniciar la aplicación ---
 if __name__ == "__main__":
-    ft.app(target=main, view=ft.WEB_BROWSER)
+    # 💡 CORRECCIÓN: ft.run() es la forma moderna y correcta de iniciar una app Flet.
+    ft.app(target=main)
