@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+.env
+.venv/
+venv/
+env/
+*.egg-info/
+*.egg
+*.log
+
+# uv
+.uv/
+uv.lock
+
+# Flet
+.flet/
+
+# Distribución
+dist/
+build/
+
+# Otros
+.DS_Store
+Thumbs.db
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
